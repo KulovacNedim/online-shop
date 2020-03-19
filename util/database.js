@@ -5,7 +5,8 @@ let _db;
 
 const mongoConnect = callback => {
     MongoClient.connect(
-        'mongodb+srv://root:toor@cluster0-muewd.mongodb.net/shop?retryWrites=true&w=majority'
+        'mongodb+srv://root:toor@cluster0-muewd.mongodb.net/shop?retryWrites=true&w=majority',
+        {useUnifiedTopology: true}
     )
         .then(client => {
             console.log('Connected!');
@@ -14,7 +15,7 @@ const mongoConnect = callback => {
         })
         .catch(err => {
             console.log(err);
-            throw err;
+            // throw err;
         });
 };
 
@@ -22,7 +23,7 @@ const getDb = () => {
     if (_db) {
         return _db;
     }
-    throw 'No database found!';
+    // throw 'No database found!';
 };
 
 exports.mongoConnect = mongoConnect;
