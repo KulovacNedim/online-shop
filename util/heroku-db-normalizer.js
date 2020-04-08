@@ -1,6 +1,7 @@
 const path = require('path');
 
 const Product = require(path.join(__dirname, '../models/product'));
+const Order = require(path.join(__dirname, '../models/order'));
 
 module.exports = async function () {
     const product1 = new Product({
@@ -47,6 +48,7 @@ module.exports = async function () {
     });
 
 
+    await Order.deleteMany({});
     await Product.deleteMany({});
     await Product.collection.insertMany([product1, product2, product3, product4, product5, product6]);
 };
