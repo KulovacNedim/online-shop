@@ -1,8 +1,7 @@
 {
   "env": {
-    "MONGO_USER": "root",
-    "MONGO_PASSWORD": "toor",
-    "MONGO_DEFAULT_DATABASE": "shop",
+    "DEFAULT_MONGO_CONNECTION": "mongodb+srv://root:FNHvWmjqDmIP2ajj@cluster0-hhic1.mongodb.net/shop?retryWrites=true&w=majority",
+    "TEST_MONGO_CONNECTION": "mongodb+srv://root:FNHvWmjqDmIP2ajj@cluster0-hhic1.mongodb.net/test-shop?retryWrites=true&w=majority",
     "STRIPE_KEY": "sk_test_4Edx28iwpHWIMD9k9yp7HsUS00ztE1jz4k",
     "SENDGRID_KEY": "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"
   }

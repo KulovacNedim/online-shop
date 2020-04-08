@@ -19,8 +19,8 @@ const shopController = require('./controllers/shop');
 const isAuth = require('./middleware/is-auth');
 const User = require('./models/user');
 
-const MONGODB_URI =
-    `mongodb+srv://${process.env.MONGO_USER}:${process.env.MONGO_PASSWORD}@cluster0-muewd.mongodb.net/${process.env.MONGO_DEFAULT_DATABASE}`;
+const MONGODB_URI = `${process.env.DEFAULT_MONGO_CONNECTION}`;
+const herokuDbNormalizer = require('./util/heroku-db-normalizer');
 
 const app = express();
 const store = new MongoDBStore({
@@ -135,6 +135,7 @@ app.use((error, req, res, next) => {
 mongoose
     .connect(MONGODB_URI)
     .then(result => {
+        herokuDbNormalizer();
         // https.createServer({
         //     key: privateKey,
         //     cert: certificate
